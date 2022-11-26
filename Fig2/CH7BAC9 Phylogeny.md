@@ -27,4 +27,4 @@ raxml -T 2 -p 74517 -f a -x 74517 -s ./Ascari_et_al_CH7BAC9_final_align.fasta -n
 ```bash
 raxml -T 2 -f b -m GTRGAMMA -n outSupport -t RAxML_bestTree.Ascari_et_al_CH7BAC9_final_align.raxml -z RAxML_bootstrap.Ascari_et_al_CH7BAC9_final_align.raxml
 ```
-9. Build tree using 
+9. Build tree using [Fig2_CH7BAC9_tree.R](Fig2/Fig2_CH7BAC9_tree.R) script
