@@ -8,7 +8,7 @@ for f in `ls MPreads/*.gz`; do sbatch BWT2-GATK.sh Guy11 MPreads $f; done
 ```
 4. Run RAxML with 100 bootstrap replications:
 ```bash
-raxml -T 4 -p 22703 -f a -x 22703 -s MonsterPlexExt_final_align.fasta -n MFED_MonsterPlexAnnotated_align.raxml -m GTRGAMMA -# 100
+raxml -T 4 -p 22703 -f a -x 22703 -s MonsterPlexExt_final_align.fasta -n MonsterPlexExt_final_align -m GTRGAMMA -# 100
 ```
 5. Write support values to nodes:
 ```bash
