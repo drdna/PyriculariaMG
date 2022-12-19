@@ -13,12 +13,13 @@ for f in `ls RAW_READS/*fq.gz | awk -F '[/.]' '{print $2}'`; do sbatch $script/B
 perl MonsterPlex2Fasta_noMGG.pl 70-15.fasta MPcoverage.bed MPLEX_VCFs > MonsterPlexData.fasta
 perl MonsterPlex_sitesv3.pl 70-15.B71.map AllMonsterPlexVarSites B71v2sh_SNPs > MonsterPlex_genomes.fasta
 ```
-3. Created aligned files:
+3. Create aligned files:
 ```bash
 cat MonsterPlexData.fasta MonsterPlex_genomes.fasta > MonsterPlex_final.fasta
 muscle3.8.31_i86darwin64 -in MonsterPlex_final.fasta -out MonsterPlex_final_align.fasta
 ```
 Fasta file: [MonsterPlex_final_align.fasta](/data/MonsterPlex_final_align.fasta)
+
 4. Create maximum likelihood tree using RAxML:
 ```bash
 raxml -T 4 -p 48556 -f a -x 48556 -s MonsterPlex_final_align.fasta -n MonsterPlex_final_align.raxml -m GTRGAMMA -# 100
