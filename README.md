@@ -30,4 +30,4 @@ raxml -T 2 -f b -m GTRGAMMA -n outSupport -t RAxML_bestTree.MonsterPlex_final_al
 ```
 6. Create tree using Fig4_Ascari_MPLEX_tree.R.
 
-![Fig4.Ascari_et_al.tiff](/Fig4/Fig4.Ascari_et_al.tiff)
+![Fig4.Ascari_et_al.tiff](/Ascari_et_al/Fig4/Fig4.Ascari_et_al.tiff)
