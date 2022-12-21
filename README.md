@@ -18,7 +18,7 @@ perl MonsterPlex_sitesv3.pl 70-15.B71.map AllMonsterPlexVarSites B71v2sh_SNPs > 
 cat MonsterPlexData.fasta MonsterPlex_genomes.fasta > MonsterPlex_final.fasta
 muscle3.8.31_i86darwin64 -in MonsterPlex_final.fasta -out MonsterPlex_final_align.fasta
 ```
-Fasta file: [MonsterPlex_final_align.fasta](/data/MonsterPlex_final_align.fasta)
+Fasta file: [MonsterPlex_final_align.fasta](/Ascari_et_al/data/MonsterPlex_final_align.fasta)
 
 4. Create maximum likelihood tree using RAxML:
 ```bash
