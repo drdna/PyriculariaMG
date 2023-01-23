@@ -27,4 +27,8 @@ raxml -T 2 -p 74517 -f a -x 74517 -s ./Ascari_et_al_CH7BAC9_final_align.fasta -n
 ```bash
 raxml -T 2 -f b -m GTRGAMMA -n outSupport -t RAxML_bestTree.Ascari_et_al_CH7BAC9_final_align.raxml -z RAxML_bootstrap.Ascari_et_al_CH7BAC9_final_align.raxml
 ```
-9. Build tree using [Fig2A_CH7BAC9_tree.R](Fig2/Fig2A_CH7BAC9_tree.R) script
+9. Rename output file with descriptive name:
+```bash
+mv bipartitions.outSupport CH7BAC9_RAxML_bipartitions.outSupport
+```
+10. Build tree using [Fig2A_CH7BAC9_tree.R](Fig2/Fig2A_CH7BAC9_tree.R) script:
