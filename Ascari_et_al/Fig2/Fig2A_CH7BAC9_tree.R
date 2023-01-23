@@ -18,7 +18,7 @@ clades <- data.frame(node = c(428, 282, 290, 365, 302, 323, 438),
                      pos = rep(1, times=7))
 
 #read in data
-Tree1 <- read.tree("~/AscariBAC9finalRAXML/RAxML_bipartitions.outSupport")
+Tree1 <- read.tree("~/CH7BAC9_RAxML_bipartitions.outSupport")
 
 groupInfo <- split(Tree1$tip.label, gsub(".*_", "", Tree1$tip.label)) # split(x, f) split dataset x into groups defined by f
 groupInfo <- lapply(groupInfo, function(x) gsub("_.*", "", x))        # apply function(x) to each eleemtn in each group
