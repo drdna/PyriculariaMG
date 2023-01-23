@@ -16,7 +16,7 @@ cat CH7BAC9_PCR.fasta CH7BAC9_genomic.fasta > CH7BAC9_all.fasta
 ```bash
 ./muscle3.8.31_i86darwin64 -in CH7BAC9_all.fasta -out CH7BAC9_all_align.fasta
 ```
-7. Run maximum likleihood analysis:
+7. Run maximum likelihood analysis:
 ```bash
 mkdir Ascari_et_al
 mv CH7BAC9_all_align.fasta Ascari_et_al_CH7BAC9_final_align.fasta
