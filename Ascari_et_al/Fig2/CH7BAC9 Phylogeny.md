@@ -19,7 +19,7 @@ cat CH7BAC9_PCR.fasta CH7BAC9_genomic.fasta > CH7BAC9_all.fasta
 7. Run maximum likleihood analysis:
 ```bash
 mkdir Ascari_et_al
-mv CH7BAC9_all_align.fasta Ascari_et_al
+mv CH7BAC9_all_align.fasta Ascari_et_al_CH7BAC9_final_align.fasta
 cd Ascari_et_al
 raxml -T 2 -p 74517 -f a -x 74517 -s ./Ascari_et_al_CH7BAC9_final_align.fasta -n Ascari_et_al_CH7BAC9_final_align.raxml -m GTRGAMMA -# 1000 
 ```
