@@ -11,7 +11,7 @@ library(dplyr)
 library(ggtext)
 
 #read in data
-Tree1 <- read.tree("RAxML_bestTree.Ascari_Cen_Dig_align.raxml.raxml.support")
+Tree1 <- read.tree("MPG1_RAxML_bestTree.support")
 
 # assign the groups
 groupInfo <- split(Tree1$tip.label, gsub(".*_", "", Tree1$tip.label)) # split(x, f) split dataset x into groups defined by f
