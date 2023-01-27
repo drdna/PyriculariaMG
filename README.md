@@ -5,17 +5,22 @@ Code and Data for Analyzing Pyricularia population in Minas Gerais
 
 1. Use [CAP3](https://doua.prabi.fr/software/cap3) to merge forward and reverse sequences from CH7BAC9 PCR products:
 ```bash
+# move fwd reads into F directory
 mkdir CAP3F
 cp CH7BAC9_F/*seq CAP3F
+# move fwd reads into R directory
 mkdir CAP3R
 cp CH7BAC9_R/*seq CAP3R
 mkdir CH7BAC9_MERGE
 mv CAP3F CH7BAC9_MERGE
 mv CAP3R CH7BAC9_MERGE
 cd CH7BAC9_MERGE
+# add directionality to read headers and then merge F and R reads into individual .fasta files
 for f in `ls CAP3F`; do sed 's/F\.ab1/\.ab1F/' CAP3F/$f >> ${f/seq/fasta}; done
 for f in `ls CAP3R`; do sed 's/R\.ab1/\.ab1R/' CAP3R/$f >> ${f/seq/fasta}; done
+# run CAP3 on merged .fasta files
 for f in `ls *fasta`; do cap3 $f; done
+# concatenate merged .fastas into single .fasta file
 for f in `ls *contigs | awk -F '.' '{print $1}'`; do sed "s/>Contig1/>$f/" $f*contigs >> CH7BAC9_PCR.fasta; done
 ```
 4. Extract CH7BAC9 sequences from genome assemblies using [Create_ortholog_datasets.pl](/scripts/reate_ortholog_datasets.pl):
