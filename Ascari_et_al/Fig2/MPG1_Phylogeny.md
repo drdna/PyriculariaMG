@@ -11,4 +11,4 @@ raxml -T 2 -p 85776 -f b -z RAxML_bipartitions.Ascari_Cen_Dig_align.raxml -t RAx
 ```bash
 mv RAxML_bestTree.Ascari_Cen_Dig_align.raxml.raxml.support MPG1_RAXML_bestTree.support
 ```
-4. Use [Fig2B_MPG1 Tree.R](/Fig2/Fig2B_MPG1_tree.R) script to produce the tree.
+4. Use [Fig2B_MPG1 Tree.R](/Ascari_et_al/scripts/Fig2B_MPG1_tree.R) script to produce the tree.
