@@ -14,5 +14,5 @@ raxml -T 4 -p 22703 -f a -x 22703 -s MonsterPlexExt_final_align.fasta -n Monster
 ```bash
 raxml -T 2 -f b -m GTRGAMMA -n outSupport -t RAxML_bestTree.MonsterPlexExt_final_align.raxml -z RAxML_bootstrap.MonsterPlexExt_final_align.raxml 
 ```
-6. Use the RAxML.bipartitions.outSupport file as input to [Fig4_Ascari_MPLEX_tree.R](/Fig4/Fig4_Ascari_MPLEX_tree.R) tree building script.
+6. Use the RAxML.bipartitions.outSupport file as input to [Fig4_Ascari_MPLEX_tree.R](/Ascari_et_al/scripts/Fig4_Ascari_MPLEX_tree.R) tree building script.
 7. Modify figure in Illustrator to re-annotate legends, re-draw some clade highlights, and re-position clade labels
