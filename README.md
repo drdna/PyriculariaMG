@@ -90,13 +90,17 @@ perl MonsterPlex2Fastav3.pl 70-15.fasta MPLEX_VCFs AllMonsterPlexVarSites MPlexG
 ```bash
 perl MonsterPlex_sitesv3.pl 70-15.B71v2sh.map AllMonsterPlexVarSites B71v2sh_SNPs > MonsterPlex_genomes.fasta
 ```
-6. Add host-of-origin to sequence header lines:
+6. Combine datasets:
 ```bash
-perl AddL 
-8. Create aligned sequences:
+cat MonsterPlexData.fasta MonsterPlex_genomes.fasta > MonsterPlex_combined.fasta
+```
+7. Add host-of-origin to sequence header lines:
 ```bash
-cat MonsterPlexData.fasta MonsterPlex_genomes.fasta > MonsterPlex_final.fasta
-muscle3.8.31_i86darwin64 -in MonsterPlex_final.fasta -out MonsterPlex_final_align.fasta
+perl AddHostInfo.pl HostList.txt MonsterPlex_combined.fasta > MonsterPlex_final.fasta
+```
+8. Align sequences with MUSCLE:
+```bash
+muscle3.8.31_i86darwin64 -in MonsterPlex_annotated.fasta -out MonsterPlex_final_align.fasta
 ```
 Fasta file: [MonsterPlex_final_align.fasta](/Ascari_et_al/data/MonsterPlex_final_align.fasta)
 
