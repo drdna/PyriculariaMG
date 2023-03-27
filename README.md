@@ -76,7 +76,7 @@ for f in `ls RAW_READS/*fq.gz | awk -F '[/.]' '{print $2}'`; do sbatch $script/B
 ```
 2. Generated .fasta files for MonsterPlex data (reorder from gene ID-based coordinates [MGG] to chromosome/position-based):
 ```bash
-perl MonsterPlex2Fasta_noMGGv2.pl 70-15.fasta MPLEX_VCFs MonsterPlexSites
+perl MonsterPlex2Fasta_noMGGv2.pl 70-15.fasta MPLEX_VCFs MonsterPlexSites MPlexGenotypes
 ```
 3. Interrogate the new SNPs file and add new variant positions to the SNP sites list:
 ```bash
@@ -84,13 +84,13 @@ cat MPtestdir/MP_new_sites0.txt MonsterPlexSites > AllMonsterPlexVarSites
 ```
 4. Re-run the script to generate a .fasta file covering all variant positions with sufficient coverage:
 ```bash
-perl MonsterPlex2Fasta_noMGGv2.pl 70-15.fasta MPLEX_VCFs AllMonsterPlexVarSites
+perl MonsterPlex2Fasta_noMGGv2.pl 70-15.fasta MPLEX_VCFs AllMonsterPlexVarSites MPlexGenotypes
 ```
-5. Retrieved MonsterPlex target sites from genome assemblies:
+5. Retrieve MonsterPlex target sites from genome assemblies:
 ```bash
 perl MonsterPlex_sitesv3.pl 70-15.B71.map AllMonsterPlexVarSites B71v2sh_SNPs > MonsterPlex_genomes.fasta
 ```
-4. Create aligned sequences:
+6. Create aligned sequences:
 ```bash
 cat MonsterPlexData.fasta MonsterPlex_genomes.fasta > MonsterPlex_final.fasta
 muscle3.8.31_i86darwin64 -in MonsterPlex_final.fasta -out MonsterPlex_final_align.fasta
