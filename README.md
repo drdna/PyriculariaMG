@@ -52,7 +52,7 @@ mv bipartitions.outSupport CH7BAC9_RAxML_bipartitions.outSupport
 ```
 10. Build tree using [Fig2A_CH7BAC9_tree.R](/Ascari_et_al/scripts/Fig2A_CH7BAC9_tree.R) script:
 
-![Fig2A_CH7BAC9.png](/Ascari_et_al/data/Fig2A_CH7BAC9.png)
+![Fig2A_CH7BAC9.png](/Ascari_et_al/Fig2/Fig2A_CH7BAC9.png)
 
 # Figure 2B: Species Identification Using MPG1 Sequences
 
@@ -69,7 +69,7 @@ raxml -T 2 -p 85776 -f b -z RAxML_bipartitions.Ascari_Cen_Dig_align.raxml -t RAx
 mv RAxML_bestTree.Ascari_Cen_Dig_align.raxml.raxml.support MPG1_RAXML_bestTree.support
 ```
 4. Use [Fig2B_MPG1 Tree.R](/Ascari_et_al/scripts/Fig2B_MPG1_tree.R) script to produce the tree.
-![]()
+![Fig2B_MPG1_tree.png](/Ascari_et_al/Fig2/Fig2B_MPG1_tree.png)
 
 ## Figure 3. Creation of maximum likelihood tree for MonsterPlex data
 
