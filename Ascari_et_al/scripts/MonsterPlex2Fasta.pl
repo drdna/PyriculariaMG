@@ -8,15 +8,14 @@
 
 # ii) Records positions and read coverage for new variants that surface upon analysis of additional strains
 
-# iii) Updates bedCoverage file for all variants (targeted and new)
+# iii) Updates variant sites file for all variants (targeted and new)
 
 
 
-die "Usage: perl MonsterPlex2Fasta_noMGG.pl <ref-genome> <VCF-directory> <bed-file> <outdir>\n" if @ARGV < 4;
+die "Usage: perl MonsterPlex2Fasta.pl <ref-genome> <VCF-directory> <variant-sites-file> <outdir>\n" if @ARGV < 4;
 
 # load modules
 
-use bedCoverage;
 use FetchGenome;
 
 
@@ -31,8 +30,6 @@ mkdir $outdir;
 
 & READ_REF_GENOME;
 
-& COVERAGE;
-
 & READ_SNP_SITES;
 
 & READ_VCFs;
@@ -45,7 +42,8 @@ mkdir $outdir;
 
 & PRINT_DEPTHS;
 
-& CHECK_PRINT_ORDER;
+# uncomment next line to check that variants are included in logical, chromosome, position order
+#& CHECK_PRINT_ORDER;
 
 exit();
 
@@ -59,15 +57,6 @@ sub READ_REF_GENOME {
   $GenomeRef = FetchGenome::getSeqs($ref);
   %Genome = %{$GenomeRef};
   #print "$Genome{1}\n";
-}
-
-
-sub COVERAGE {
-
-# Keep track of coverage at variant positions that were not originally targeted by assay
-
-  $bedCovRef = bedCoverage::bedCov($bedfile);
-  %bedCoverage = %{$bedCovRef};
 }
 
 
