@@ -49,6 +49,8 @@ mv bipartitions.outSupport CH7BAC9_RAxML_bipartitions.outSupport
 ```
 10. Build tree using [Fig2A_CH7BAC9_tree.R](/Ascari_et_al/Fig2/Fig2A_CH7BAC9_tree.R) script:
 
+![Fig2A_CH7BAC9.png](/Ascari_et_al/Fig2/Fig2A_CH7BAC9.png)
+
 # Figure 2B: Species Identification Using MPG1 Sequences
 
 1. Align sequences using MUSCLE:
