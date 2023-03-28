@@ -1,0 +1,67 @@
+## Figure 2A: CH7BAC9 Phylogeny
+
+1. Use [CAP3](https://doua.prabi.fr/software/cap3) to merge forward and reverse sequences from CH7BAC9 PCR products:
+```bash
+# move fwd reads into F directory
+mkdir CAP3F
+cp CH7BAC9_F/*seq CAP3F
+# move rev reads into R directory
+mkdir CAP3R
+cp CH7BAC9_R/*seq CAP3R
+mkdir CH7BAC9_MERGE
+mv CAP3F CH7BAC9_MERGE
+mv CAP3R CH7BAC9_MERGE
+cd CH7BAC9_MERGE
+# add directionality to read headers and then merge F and R reads into individual .fasta files
+for f in `ls CAP3F`; do sed 's/F\.ab1/\.ab1F/' CAP3F/$f >> ${f/seq/fasta}; done
+for f in `ls CAP3R`; do sed 's/R\.ab1/\.ab1R/' CAP3R/$f >> ${f/seq/fasta}; done
+# run CAP3 on merged .fasta files
+for f in `ls *fasta`; do cap3 $f; done
+# concatenate merged .fastas into single .fasta file
+for f in `ls *contigs | awk -F '.' '{print $1}'`; do sed "s/>Contig1/>$f/" $f*contigs >> CH7BAC9_PCR.fasta; done
+```
+4. Extract CH7BAC9 sequences from genome assemblies using [Create_ortholog_datasets.pl](/Ascari_et_al/scripts/Create_ortholog_datasets.pl):
+```bash
+perl Create_ortholog_datasets.pl MASKED_GENOMES B71_ch7bac9.fasta
+```
+5. Merge the two datasets:
+```bash
+cat CH7BAC9_PCR.fasta CH7BAC9_genomic.fasta > CH7BAC9_all.fasta
+```
+6. Use MUSCLE to align the sequences:
+```bash
+./muscle3.8.31_i86darwin64 -in CH7BAC9_all.fasta -out CH7BAC9_all_align.fasta
+```
+7. Run maximum likelihood analysis:
+```bash
+mkdir Ascari_et_al
+mv CH7BAC9_all_align.fasta Ascari_et_al_CH7BAC9_final_align.fasta
+cd Ascari_et_al
+raxml -T 2 -p 74517 -f a -x 74517 -s ./Ascari_et_al_CH7BAC9_final_align.fasta -n Ascari_et_al_CH7BAC9_final_align.raxml -m GTRGAMMA -# 1000 
+```
+8. Add bootstrap values to node labels:
+```bash
+raxml -T 2 -f b -m GTRGAMMA -n outSupport -t RAxML_bestTree.Ascari_et_al_CH7BAC9_final_align.raxml -z RAxML_bootstrap.Ascari_et_al_CH7BAC9_final_align.raxml
+```
+9. Rename output file with descriptive name:
+```bash
+mv bipartitions.outSupport CH7BAC9_RAxML_bipartitions.outSupport
+```
+10. Build tree using [Fig2A_CH7BAC9_tree.R](/Ascari_et_al/scripts/Fig2A_CH7BAC9_tree.R) script:
+
+# Figure 2B: Species Identification Using MPG1 Sequences
+
+1. Align sequences using MUSCLE:
+```bash
+muscle -in Ascari_Cen_Dig.fasta -out Ascari_Cen_Dig_align.fasta
+```
+2. Use RAxML to build maximum likelihood tree with support values:
+```bash
+raxml -T 2 -p 85776 -f b -z RAxML_bipartitions.Ascari_Cen_Dig_align.raxml -t RAxML_bestTree.Ascari_Cen_Dig_align.raxml -s ./Ascari_Cen_Dig_align.fasta -m GTRGAMMA -n support 
+```
+3. Rename tree file with more descriptive title:
+```bash
+mv RAxML_bestTree.Ascari_Cen_Dig_align.raxml.raxml.support MPG1_RAXML_bestTree.support
+```
+4. Use [Fig2B_MPG1 Tree.R](/Ascari_et_al/scripts/Fig2B_MPG1_tree.R) script to produce the tree.
+![]()
