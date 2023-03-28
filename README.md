@@ -107,6 +107,6 @@ raxml -T 4 -p 48556 -f a -x 48556 -s MonsterPlex_final_align.fasta -n MonsterPle
 ```bash
 raxml -T 2 -f b -m GTRGAMMA -n outSupport -t RAxML_bestTree.MonsterPlex_final_align.raxml -z RAxML_bootstrap.MonsterPlex_final_align.raxml
 ```
-10. Create tree using [Fig3_MPLEX_tree.R](/scripts/Fig3_MPLEX_tree.R.
+10. Create tree using [Fig3_MPLEX_tree.R](/scripts/Fig3_MPLEX_tree.R).
 
 ![Fig4.Ascari_et_al.tiff](/Ascari_et_al/Fig4/Fig4.Ascari_et_al.tiff)
