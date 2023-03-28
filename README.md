@@ -23,7 +23,7 @@ for f in `ls *fasta`; do cap3 $f; done
 # concatenate merged .fastas into single .fasta file
 for f in `ls *contigs | awk -F '.' '{print $1}'`; do sed "s/>Contig1/>$f/" $f*contigs >> CH7BAC9_PCR.fasta; done
 ```
-4. Extract CH7BAC9 sequences from genome assemblies using [Create_ortholog_datasets.pl](/scripts/reate_ortholog_datasets.pl):
+4. Extract CH7BAC9 sequences from genome assemblies using [Create_ortholog_datasets.pl](/Ascari_et_al/scripts/Create_ortholog_datasets.pl):
 5. ```bash
 perl Create_ortholog_datasets.pl MASKED_GENOMES B71_ch7bac9.fasta
 ```
@@ -50,7 +50,7 @@ raxml -T 2 -f b -m GTRGAMMA -n outSupport -t RAxML_bestTree.Ascari_et_al_CH7BAC9
 ```bash
 mv bipartitions.outSupport CH7BAC9_RAxML_bipartitions.outSupport
 ```
-10. Build tree using [Fig2A_CH7BAC9_tree.R](Fig2/Fig2A_CH7BAC9_tree.R) script:
+10. Build tree using [Fig2A_CH7BAC9_tree.R](/Ascari_et_al/scripts/Fig2A_CH7BAC9_tree.R) script:
 
 # Figure 2B: Species Identification Using MPG1 Sequences
 
@@ -66,7 +66,8 @@ raxml -T 2 -p 85776 -f b -z RAxML_bipartitions.Ascari_Cen_Dig_align.raxml -t RAx
 ```bash
 mv RAxML_bestTree.Ascari_Cen_Dig_align.raxml.raxml.support MPG1_RAXML_bestTree.support
 ```
-4. Use [Fig2B_MPG1 Tree.R](/Fig2/Fig2B_MPG1_tree.R) script to produce the tree.
+4. Use [Fig2B_MPG1 Tree.R](/Ascari_et_al/scripts/Fig2B_MPG1_tree.R) script to produce the tree.
+![]()
 
 ## Figure 3. Creation of maximum likelihood tree for MonsterPlex data
 
@@ -99,6 +100,7 @@ cat MonsterPlexData.fasta MonsterPlex_genomes.fasta > MonsterPlex_combined.fasta
 muscle3.8.31_i86darwin64 -in MonsterPlex_annotated.fasta -out MonsterPlex_final_align.fasta
 ```
 Fasta file: [MonsterPlex_final_align.fasta](/Ascari_et_al/data/MonsterPlex_final_align.fasta).
+
 8. Create maximum likelihood tree using RAxML:
 ```bash
 raxml -T 4 -p 48556 -f a -x 48556 -s MonsterPlex_final_align.fasta -n MonsterPlex_final_align.raxml -m GTRGAMMA -# 100
