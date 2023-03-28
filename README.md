@@ -24,7 +24,7 @@ for f in `ls *fasta`; do cap3 $f; done
 for f in `ls *contigs | awk -F '.' '{print $1}'`; do sed "s/>Contig1/>$f/" $f*contigs >> CH7BAC9_PCR.fasta; done
 ```
 4. Extract CH7BAC9 sequences from genome assemblies using [Create_ortholog_datasets.pl](/Ascari_et_al/scripts/Create_ortholog_datasets.pl):
-5. ```bash
+```bash
 perl Create_ortholog_datasets.pl MASKED_GENOMES B71_ch7bac9.fasta
 ```
 5. Merge the two datasets:
