@@ -98,7 +98,7 @@ cat MonsterPlexData.fasta MonsterPlex_genomes.fasta > MonsterPlex_combined.fasta
 ```bash
 muscle3.8.31_i86darwin64 -in MonsterPlex_annotated.fasta -out MonsterPlex_final_align.fasta
 ```
-Fasta file: [MonsterPlex_final_align.fasta](/Ascari_et_al/data/MonsterPlex_final_align.fasta)
+Fasta file: [MonsterPlex_final_align.fasta](/Ascari_et_al/data/MonsterPlex_final_align.fasta).
 8. Create maximum likelihood tree using RAxML:
 ```bash
 raxml -T 4 -p 48556 -f a -x 48556 -s MonsterPlex_final_align.fasta -n MonsterPlex_final_align.raxml -m GTRGAMMA -# 100
