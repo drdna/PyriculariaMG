@@ -113,4 +113,4 @@ raxml -T 2 -f b -m GTRGAMMA -n outSupport -t RAxML_bestTree.MonsterPlex_final_al
 ```
 10. Create tree using [Fig3_MPLEX_tree.R](/Ascari_et_al/scripts/Fig3_MPLEX_tree.R).
 
-![Fig4.Ascari_et_al.tiff](/Ascari_et_al/Fig4/Fig4.Ascari_et_al.tiff)
+![Fig3_MPLEX_tree_final.tif](/Ascari_et_al/Fig3/Fig3_MPLEX_tree_final.tif)
