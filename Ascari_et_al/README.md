@@ -49,7 +49,7 @@ mv bipartitions.outSupport CH7BAC9_RAxML_bipartitions.outSupport
 ```
 10. Build tree using [Fig2A_CH7BAC9_tree.R](/Ascari_et_al/Fig2/Fig2A_CH7BAC9_tree.R) script:
 
-![Fig2A_CH7BAC9.png](/Ascari_et_al/Fig2/Fig2A_CH7BAC9_tree.png)
+![Fig2A_CH7BAC9.png](/Ascari_et_al/Fig2/Fig2A_CH7BAC9_tree_final.tif)
 
 # Figure 2B: Species Identification Using MPG1 Sequences
 
@@ -110,4 +110,4 @@ raxml -T 2 -f b -m GTRGAMMA -n outSupport -t RAxML_bestTree.MonsterPlex_final_al
 ```
 10. Create tree using [Fig3_MPLEX_tree.R](/Ascari_et_al/scripts/Fig3_MPLEX_tree.R).
 
-![Fig3_MPLEX_tree_final.tif](/Ascari_et_al/Fig3/Fig3_PLEX_tree_final.tif)
+![Fig3_MPLEX_tree_final.tif](/Ascari_et_al/Fig3/Fig3_MPLEX_tree_final.tif)
